@@ -105,3 +105,10 @@ venv.bak/
 
 # Editors
 .vscode/
+
+# Packages
+node_modules/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

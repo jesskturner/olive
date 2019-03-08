@@ -1,0 +1,17 @@
+networks:
+  default:
+    external:
+      name: olive
+services:
+  olive:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: olive
+    image: olive
+    ports:
+    - 8030:8030
+    tty: true
+    volumes:
+    - .:/app
+version: '2'
