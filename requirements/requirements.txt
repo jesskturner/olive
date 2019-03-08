@@ -28,7 +28,7 @@ pycodestyle==2.5.0        # via flake8
 pyflakes==2.1.1           # via flake8
 pytest-sanic==1.0.0
 pytest==4.3.0             # via pytest-sanic
-pyyaml==3.13              # via watchdog
+pyyaml==5.1b5
 sanic-admin==0.0.6
 sanic==18.12.0
 six==1.12.0               # via pytest
