@@ -1,11 +1,13 @@
 from sanic import Sanic
 
-from olive.routes import base_routes
+from olive.routes.api import api_routes
+from olive.routes.base import base_routes
 
 from settings import WEB_PORT
 
 
 app = Sanic(__name__)
+app.blueprint(api_routes)
 app.blueprint(base_routes)
 app.static('/', 'dist')
 
