@@ -9,9 +9,21 @@ services:
       dockerfile: Dockerfile
     container_name: olive
     image: olive
+    links:
+    - mysql
     ports:
     - 8030:8030
     tty: true
     volumes:
     - .:/app
+  mysql:
+    container_name: olive_mysql
+    environment:
+      MYSQL_DATABASE: olive
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    image: mysql:8.0
+    ports:
+    - 3330:3330
+    volumes:
+    - ./docker/mysql/conf.d:/etc/mysql/conf.d
 version: '2'

@@ -1,6 +1,8 @@
+alembic
 antlr4-python3-runtime<5
 flake8
 pytest-sanic
 pyyaml>=4.2b1
 sanic
 sanic-admin
+sqlalchemy

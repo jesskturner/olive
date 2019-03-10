@@ -23,6 +23,10 @@ kill:
 	docker-compose -f docker-compose.yml kill && \
 	echo "Killed."
 
+.PHONY: mysql_shell
+mysql_shell:
+	docker exec -it olive_mysql bash
+
 .PHONY: destroy
 destroy:
 	docker-compose -f docker-compose.yml kill && \
