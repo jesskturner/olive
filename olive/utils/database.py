@@ -8,7 +8,7 @@ from settings import DATABASE_URL
 
 engine = create_engine(DATABASE_URL)
 
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(bind=engine, expire_on_commit=False)
 
 
 @contextmanager

@@ -1,8 +1,12 @@
 alembic
 antlr4-python3-runtime<5
 flake8
+mysqlclient
+passlib
 pytest-sanic
 pyyaml>=4.2b1
 sanic
 sanic-admin
+sanic-jwt
 sqlalchemy
+sqlalchemy-utils

@@ -21,7 +21,7 @@ services:
     environment:
       MYSQL_DATABASE: olive
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-    image: mysql:8.0
+    image: mysql:5.7
     ports:
     - 3330:3330
     volumes:

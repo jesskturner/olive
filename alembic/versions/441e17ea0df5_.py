@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 441e17ea0df5
-Revises: 
+Revises:
 Create Date: 2019-03-10 18:51:54.394789
 
 """
@@ -27,8 +27,8 @@ def upgrade():
     )
     op.create_table('task',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('input_string', sa.String(length=35), nullable=True),
-    sa.Column('description', sa.String(length=35), nullable=True),
+    sa.Column('input_string', sa.Text(), nullable=True),
+    sa.Column('description', sa.Text(), nullable=True),
     sa.Column('priority', sa.Integer(), nullable=True),
     sa.Column('size', sa.Integer(), nullable=True),
     sa.Column('date_created', sa.DateTime(), nullable=True),
@@ -38,9 +38,8 @@ def upgrade():
     )
     op.create_table('user',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('first_name', sa.String(length=35), nullable=True),
-    sa.Column('last_name', sa.String(length=35), nullable=True),
+    sa.Column('first_name', sa.String(length=100), nullable=True),
+    sa.Column('last_name', sa.String(length=100), nullable=True),
     sa.Column('date_created', sa.DateTime(), nullable=True),
     sa.Column('date_modified', sa.DateTime(), nullable=True),
     sa.Column('date_archived', sa.DateTime(), nullable=True),
@@ -48,7 +47,7 @@ def upgrade():
     )
     op.create_table('task_tag',
     sa.Column('task_id', sa.Integer(), nullable=True),
-    sa.Column('tag_value', sa.String(), nullable=True),
+    sa.Column('tag_value', sa.String(length=50), nullable=True),
     sa.Column('date_created', sa.DateTime(), nullable=True),
     sa.Column('date_archived', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['tag_value'], ['tag.value'], ),

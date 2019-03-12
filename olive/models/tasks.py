@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Table
+from sqlalchemy import (
+    Column, DateTime, ForeignKey, Integer, String, Table, Text)
 from sqlalchemy.orm import relationship
 
 from olive.models import Base
@@ -10,7 +11,7 @@ task_tag_table = Table(
     'task_tag',
     Base.metadata,
     Column('task_id', Integer, ForeignKey('task.id')),
-    Column('tag_value', String, ForeignKey('tag.value')),
+    Column('tag_value', String(50), ForeignKey('tag.value')),
     Column('date_created', DateTime, default=datetime.now),
     Column('date_archived', DateTime, nullable=True),
 )
@@ -39,9 +40,9 @@ class Task(Base):
     __tablename__ = 'task'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    user = Column(Integer, ForeignKey("user.user_id"), nullable=False),
-    input_string = Column(String(35), nullable=True)
-    description = Column(String(35), nullable=True)
+    user = Column(Integer, ForeignKey("user.id"), nullable=False)
+    input_string = Column(Text, nullable=True)
+    description = Column(Text, nullable=True)
     priority = Column(Integer, nullable=True)
     size = Column(Integer, nullable=True)
     tags = relationship(
