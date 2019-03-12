@@ -1,5 +1,9 @@
 from sanic import Blueprint
 from sanic.response import json
+from sanic_jwt.decorators import inject_user
+
+from olive.models.users import User
+from olive.utils.database import scoped_session
 
 from settings import APP_NAME
 
@@ -26,3 +30,9 @@ async def meta(request):
     return json({
         "app": APP_NAME,
     })
+
+
+@api_routes.route("/user")
+@inject_user()
+def user(request):
+    return json({"user_id": user.id})

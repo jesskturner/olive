@@ -3,7 +3,7 @@ import os
 APP_NAME = 'olive'
 WEB_PORT = 8030
 
-
+# Database
 MYSQL_DB_NAME =  os.environ.get('MYSQL_DB_NAME', 'olive')
 MYSQL_DB_HOSTNAME =  os.environ.get( 'MYSQL_DB_HOSTNAME', 'mysql')
 MYSQL_DB_PORT = os.environ.get('MYSQL_DB_PORT', '3330')

@@ -5,10 +5,9 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-# from settings import DATABASE_UR
 
 MYSQL_DB_NAME =  os.environ.get('MYSQL_DB_NAME', 'olive')
-MYSQL_DB_HOSTNAME =  os.environ.get( 'MYSQL_DB_HOSTNAME', '0.0.0.0')
+MYSQL_DB_HOSTNAME =  os.environ.get( 'MYSQL_DB_HOSTNAME', 'mysql')
 MYSQL_DB_PORT = os.environ.get('MYSQL_DB_PORT', '3330')
 MYSQL_DB_PASSWORD = os.environ.get('MYSQL_DB_PASSWORD')
 MYSQL_DB_USERNAME = os.environ.get('MYSQL_DB_USERNAME', 'root')
@@ -18,7 +17,7 @@ MYSQL_DB_USER_PASS_KEY = (
     if MYSQL_DB_PASSWORD else MYSQL_DB_USERNAME
 )
 DATABASE_URL = (
-    "mysql+pymysql://{}@{}:{}/{}".format(
+    "mysql://{}@{}:{}/{}".format(
         MYSQL_DB_USER_PASS_KEY, MYSQL_DB_HOSTNAME, MYSQL_DB_PORT,
         MYSQL_DB_NAME
     )

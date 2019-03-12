@@ -1,10 +1,12 @@
+from sanic import Blueprint
 from sanic_jwt import BaseEndpoint
+
 from olive.models.users import User
-from olive.utils.database import scoped_session, Session
+from olive.utils.database import scoped_session
 
 
 class Register(BaseEndpoint):
-    async def post(self, request, *args, **kwargs):
+    async def post(self, request, *args, **kwargs):  # noqa
         email = request.json.get('email', None)
         first_name = request.json.get('first_name', None)
         last_name = request.json.get('last_name', None)
@@ -31,3 +33,7 @@ class Register(BaseEndpoint):
             output,
             config=self.config)
         return response
+
+user_views = (
+    ('/register', Register),
+)
